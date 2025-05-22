@@ -1,4 +1,4 @@
-from keyboard import Keyboard
+from keyboard import Keyboard # type: ignore
 from plugboard import Plugboard
 from rotor import Rotor
 from reflector import Reflector
