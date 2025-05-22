@@ -16,10 +16,20 @@ C = Reflector("FVPJIAOYEDRZXWGCTKUQSBNMHL")
 
 # keyboard and plugboard
 KB = Keyboard()
-PB = Plugboard(["AR", "GK", "OX"])
+PB = Plugboard(["AB", "CD", "EF"])
 
 # define enigma machine
-ENIGMA = Enigma(A,I,II,III,PB,KB)
+ENIGMA = Enigma(B,IV,II,I,PB,KB)
 
-# encipher a letter
-print(ENIGMA.encipher("A"))
+#set the rings
+ENIGMA.set_rings((5,26,2))
+
+# set message key
+ENIGMA.set_key("CAT")
+
+# encipher message
+message = "THISCOOLENIGMAMACHINE"
+cipher_text = ""
+for letter in message:
+    cipher_text = cipher_text + ENIGMA.encipher(letter)
+print(cipher_text)

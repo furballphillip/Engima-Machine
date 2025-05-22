@@ -8,6 +8,16 @@ class Enigma:
         self.pb = pb
         self.kb = kb
 
+    def set_rings(self,rings):
+        self.r1.set_ring(rings[0])
+        self.r2.set_ring(rings[1])
+        self.r3.set_ring(rings[2])
+
+    def set_key(self, key):
+        self.r1.rotate_to_letter(key[0])
+        self.r2.rotate_to_letter(key[1])
+        self.r3.rotate_to_letter(key[2])
+
     def encipher (self, letter):
         
         # rotate the rotors
