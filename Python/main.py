@@ -19,7 +19,7 @@ B = Reflector("YRUHQSLDPXNGOKMIEBFZCWVJAT")
 C = Reflector("FVPJIAOYEDRZXWGCTKUQSBNMHL")
 KB = Keyboard()
 PB = Plugboard(["AR", "GK", "OX"])
-
+"""
 letter = "A"
 signal = KB.forward(letter)
 signal = PB.forward(signal)
@@ -34,3 +34,8 @@ signal = PB.backward(signal)
 letter = KB.backward(signal)
 
 print(letter)
+"""
+
+I.show()
+I.rotate()
+I.show()

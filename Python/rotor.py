@@ -14,3 +14,12 @@ class Rotor:
         letter = self.left[signal]
         signal = self.right.find(letter)
         return signal
+    
+    def show(self):
+        print(self.left)
+        print(self.right)
+        print("")
+
+    def rotate(self):
+        self.left = self.left[1:] + self.left[0]
+        self.right = self.right[1:] + self.right[0]
