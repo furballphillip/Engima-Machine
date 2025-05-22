@@ -9,6 +9,24 @@ class Enigma:
         self.kb = kb
 
     def encipher (self, letter):
+        
+        # rotate the rotors
+        if self.r2.left[0] == self.r2.notch and self.r3.left[0] == self.r3.notch:
+            self.r1.rotate()
+            self.r2.rotate()
+            self.r3.rotate()
+        elif self.r2.left[0] == self.r2.notch: # double step anomaly of the Enigma
+            self.r1.rotate()
+            self.r2.rotate()
+            self.r3.rotate()
+        elif self.r3.left[0] == self.r3.notch:
+            self.r2.rotate()
+            self.r3.rotate()
+        else:
+            self.r3.rotate()
+        
+
+        # pass signal through the machine
         signal = self.kb.forward(letter)
         signal = self.pb.forward(signal)
         signal = self.r3.forward(signal)
