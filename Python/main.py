@@ -37,5 +37,5 @@ print(letter)
 """
 
 I.show()
-I.rotate()
+I.rotate_to_letter("G")
 I.show()
