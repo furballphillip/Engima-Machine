@@ -1,4 +1,4 @@
-#include "C:\Users\Phill\Documents\GitHub\Engima-Machine\C++\include\Reflector.h"
+#include "Reflector.h"
 
  Reflector::Reflector(const std::string& wiring)
     : left("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), right(wiring) {}
