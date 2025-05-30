@@ -21,6 +21,9 @@ public:
     void set_ring(int n);
 
     void show() const;
+
+    const std::string& get_left() const;
+    char get_notch() const;
 };
 
 #endif // ROTOR_H

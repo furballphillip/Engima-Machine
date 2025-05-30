@@ -18,14 +18,14 @@ class Enigma:
         self.r2.rotate_to_letter(key[1])
         self.r3.rotate_to_letter(key[2])
 
-    def encipher (self, letter):
+    def encipher(self, letter):
         
-        # rotate the rotors
+        # Rotate the rotors
         if self.r2.left[0] == self.r2.notch and self.r3.left[0] == self.r3.notch:
             self.r1.rotate()
             self.r2.rotate()
             self.r3.rotate()
-        elif self.r2.left[0] == self.r2.notch: # double step anomaly of the Enigma
+        elif self.r2.left[0] == self.r2.notch: # Double step anomaly of the Enigma
             self.r1.rotate()
             self.r2.rotate()
             self.r3.rotate()
@@ -36,7 +36,7 @@ class Enigma:
             self.r3.rotate()
         
 
-        # pass signal through the machine
+        # Pass signal through the machine
         signal = self.kb.forward(letter)
         signal = self.pb.forward(signal)
         signal = self.r3.forward(signal)

@@ -4,7 +4,11 @@ from rotor import Rotor
 from reflector import Reflector
 from enigma import Enigma
 
-# historical enigma rotors and reflectors
+# Keyboard and plugboard
+KB = Keyboard()
+PB = Plugboard(["AB", "CD", "EF"])
+
+# Historical enigma rotors and reflectors
 I = Rotor("EKMFLGDQVZNTOWYHXUSPAIBRCJ", "Q")
 II = Rotor("AJDKSIRUXBLHWTMCQGZNPYFVOE", "E")
 III = Rotor("BDFHJLCPRTXVZNYEIWGAKMUSQO", "V")
@@ -14,20 +18,16 @@ A = Reflector("EJMZALYXVBWFCRQUONTSPIKHGD")
 B = Reflector("YRUHQSLDPXNGOKMIEBFZCWVJAT")
 C = Reflector("FVPJIAOYEDRZXWGCTKUQSBNMHL")
 
-# keyboard and plugboard
-KB = Keyboard()
-PB = Plugboard(["AB", "CD", "EF"])
-
-# define enigma machine
+# Define enigma machine
 ENIGMA = Enigma(B,IV,II,I,PB,KB)
 
-#set the rings
+# Set the rings
 ENIGMA.set_rings((5,26,2))
 
-# set message key
+# Set message key
 ENIGMA.set_key("CAT")
 
-# encipher message
+# Encipher message
 message = "THISCOOLENIGMAMACHINE"
 cipher_text = ""
 for letter in message:

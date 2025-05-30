@@ -71,3 +71,12 @@ void Rotor::show() const
     std::cout << "Right: " << right << std::endl;
 }
 
+const std::string& Rotor::get_left() const
+{
+    return left;
+}
+
+char Rotor::get_notch() const
+{
+    return notch;
+}
