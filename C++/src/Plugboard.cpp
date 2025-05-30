@@ -1,9 +1,11 @@
 #include "Plugboard.h"
 
+const std::string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 Plugboard::Plugboard(const std::vector<std::pair<char, char>>& pairs)
-    : left("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), right("ABCDEFGHIJKLMNOPQRSTUVWXYZ") 
+    : left(alphabet), right(alphabet) 
 {
-    for (const auto& pair: pairs)
+    for (const auto& pair : pairs)
     {
         char A = pair.first;
         char B = pair.second;

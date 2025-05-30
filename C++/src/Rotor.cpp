@@ -26,14 +26,11 @@ void Rotor::rotate(int n, bool forward)
 
     for (int i = 0; i < n; ++i)
     {
-        if (forward)
-        {
+        if (forward) {
 			// Rotate both strings left
             left = left.substr(1) + left[0];
             right = right.substr(1) + right[0];
-        }
-        else
-        {
+        } else {
             // Rotate both strings right
             left = left.back() + left.substr(0, size - 1);
             right = right.back() + right.substr(0, size - 1);
@@ -49,20 +46,24 @@ void Rotor::rotate_to_letter(char letter)
 
 void Rotor::set_ring(int n)
 {
+    if (n < 0 || n >= 26)
+    {
+        std::cerr << "Invalid ring setting: " << n << "\n";
+        return;
+    }
+
     // Rotate rotor backwards
-    rotate(n - 1, false);
+    rotate(n, false);
 
     // Adjust turnover notch in relation to the wiring
-    int notch_index = std::string(alphabet).find(notch);
-    if (notch_index == std::string::npos) 
+    int notch_index = alphabet.find(notch);
+    if (notch_index == std::string::npos)
     {
         std::cerr << "Invalid notch character: " << notch << "\n";
         return;
     }
 
     notch = alphabet[(notch_index - n + 26) % 26];
-
-    std::cout << "New notch position: " << notch << "\n";
 }
 
 void Rotor::show() const

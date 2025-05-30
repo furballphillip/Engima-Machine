@@ -6,5 +6,5 @@
 int Reflector::reflect(int signal) const
 {
     char letter = left[signal];
-    return right.find(letter); // returns index of reflected letter
+    return right.find(letter); // Returns index of reflected letter
 }
