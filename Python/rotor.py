@@ -41,3 +41,4 @@ class Rotor:
         # adjust turnover notch in relation to the wiring
         n_notch = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".find(self.notch)
         self.notch = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[(n_notch - n) % 26]
+        

@@ -20,3 +20,4 @@ class Plugboard:
         letter = self.left[signal]
         signal = self.right.find(letter)
         return signal
+    

@@ -7,3 +7,4 @@ class Keyboard:
     def backward(self, signal):
         letter = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"[signal]
         return letter
+    

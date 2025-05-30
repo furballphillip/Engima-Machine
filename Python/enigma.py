@@ -49,3 +49,4 @@ class Enigma:
         signal = self.pb.backward(signal)
         letter = self.kb.backward(signal)
         return letter
+    

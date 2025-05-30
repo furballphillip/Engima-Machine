@@ -8,3 +8,4 @@ class Reflector:
         letter = self.right[signal]
         signal = self.left.find(letter)
         return signal
+    
