@@ -1,8 +1,11 @@
 #include "Rotor.h"
 #include <iostream>
 
+const std::string alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
 Rotor::Rotor(const std::string& wiring, char notch)
-    : left("ABCDEFGHIJKLMNOPQRSTUVWXYZ"), right(wiring), notch(notch) {}
+    : left(alphabet), right(wiring), notch(notch) {
+}
 
 int Rotor::forward(int signal) const
 {
@@ -18,17 +21,22 @@ int Rotor::backward(int signal) const
 
 void Rotor::rotate(int n, bool forward)
 {
+    const int size = left.size();
+    n = n % size;
+
     for (int i = 0; i < n; ++i)
     {
         if (forward)
         {
+			// Rotate both strings left
             left = left.substr(1) + left[0];
             right = right.substr(1) + right[0];
         }
         else
         {
-            left = left.back() + left[0, 25];
-            right = right.back() + right[0, 25];
+            // Rotate both strings right
+            left = left.back() + left.substr(0, size - 1);
+            right = right.back() + right.substr(0, size - 1);
         }
     }
 }
@@ -45,11 +53,21 @@ void Rotor::set_ring(int n)
     rotate(n - 1, false);
 
     // Adjust turnover notch in relation to the wiring
-    int notch_index = std::string("ABCDEFGHIJKLMNOPQRSTUVWXYZ").find(notch);
-    notch = std::string("ABCDEFGHIJKLMNOPQRSTUVWXYZ")[(notch_index - n + 26) % 26];
+    int notch_index = std::string(alphabet).find(notch);
+    if (notch_index == std::string::npos) 
+    {
+        std::cerr << "Invalid notch character: " << notch << "\n";
+        return;
+    }
+
+    notch = alphabet[(notch_index - n + 26) % 26];
+
+    std::cout << "New notch position: " << notch << "\n";
 }
 
 void Rotor::show() const
 {
-    std::cout << left << "\n" << right << "\n\n";
+    std::cout << "Left:  " << left << std::endl;
+    std::cout << "Right: " << right << std::endl;
 }
+
